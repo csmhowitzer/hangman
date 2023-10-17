@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import Board from './components/Board';
+import './index.css';
+import { getRandomWord } from './utilities/getWords';
 
 function App() {
+
+  const [word, setWord] = useState("");
+  const [wins, setWins] = useState(0);
+  const [losses, setLosses] = useState(0);
+  const [title, setTitle] = useState("Hangman");
+  const [guesses, setGuesses] = useState([]);
+  const [wordArray, setWordArray] = useState([]);
+  const [wordLength, setWordLength] = useState(0);
+
+  useEffect(() => {
+    getRandomWord().then((word) => {
+      setWord(word);
+      setWordArray(word.split(""));
+      setWordLength(word.length);
+    });
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Board word={word} guesses={guesses}/>
     </div>
   );
 }
 
 export default App;
+
