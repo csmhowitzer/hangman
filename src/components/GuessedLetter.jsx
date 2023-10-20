@@ -1,12 +1,16 @@
-function GuessedLetter({id, letter, isLeftOver}) {
+function GuessedLetter({id, letter, isWhite, isRed}) {
     return (
-        isLeftOver ? (
+        isWhite ? (
             <span className="word-letter">
                 <span class="active" key={id}>{letter}</span>
             </span>
-        ) : (
+        ) : isRed ? (
             <span className="word-letter">
                 <span class="over" key={id}>{letter}</span>
+            </span>
+        ) : (
+            <span className="word-letter">
+                <span  key={id}>_</span>
             </span>
         )
     );

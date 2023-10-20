@@ -1,12 +1,12 @@
 import GuessedLetters from "./GuessedLetters";
 import Man from "./Man";
 
-function Hangman({word, guesses}) {
+function Hangman({word, guesses, wrongGuesses}) {
 
     return (
         <>
-            <Man guesses={guesses}/>
-            <GuessedLetters word={word} guesses={guesses}/>
+            <Man guesses={wrongGuesses}/>
+            <GuessedLetters word={word} guesses={guesses} wrongGuesses={wrongGuesses}/>
         </>
     );
 

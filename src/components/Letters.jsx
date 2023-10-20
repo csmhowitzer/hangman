@@ -1,6 +1,6 @@
 import Button from "./Button";
 
-function Letters({correctGuesses, wrongGuesses}) {
+function Letters({updateGuesses, correctGuesses, wrongGuesses}) {
 
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     return (
@@ -14,7 +14,7 @@ function Letters({correctGuesses, wrongGuesses}) {
                     isSelected = true;
                     isHighlighted = true;
                 }
-                return <Button key={index} letter={letter} isSelected={isSelected} isHighlighted={isHighlighted} />;
+                return <Button key={index} letter={letter} isSelected={isSelected} isHighlighted={isHighlighted} clickHandler={updateGuesses}/>;
             })}
         </>
 

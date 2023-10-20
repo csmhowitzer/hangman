@@ -8,22 +8,22 @@ function Man({guesses}) {
                 <div class="pole-upright"></div>
                 <div class="base"></div>
                 {
-                    guesses.legth > 0 ? <div class="person-head"></div> : null
+                    guesses.length > 0 ? <div class="person-head"></div> : null
                 }
                 {
-                    guesses.legth > 1 ? <div class="person-body"></div> : null
+                    guesses.length > 1 ? <div class="person-body"></div> : null
                 }
                 {
-                    guesses.legth > 2 ? <div class="person-left-arm"></div> : null
+                    guesses.length > 2 ? <div class="person-left-arm"></div> : null
                 }
                 {
-                    guesses.legth > 3 ? <div class="person-right-arm"></div> : null
+                    guesses.length > 3 ? <div class="person-right-arm"></div> : null
                 }
                 {
-                    guesses.legth > 4 ? <div class="person-left-leg"></div> : null
+                    guesses.length > 4 ? <div class="person-left-leg"></div> : null
                 }
                 {
-                    guesses.legth > 5 ? <div class="person-right-leg"></div> : null
+                    guesses.length > 5 ? <div class="person-right-leg"></div> : null
                 }
             </div>
         </>

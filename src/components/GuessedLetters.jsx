@@ -1,6 +1,6 @@
 import GuessedLetter from "./GuessedLetter";
 
-function GuessedLetters({word, guesses}) {
+function GuessedLetters({word, guesses, wrongGuesses}) {
 
     let wordLetters = word.split("");
     return (
@@ -8,10 +8,13 @@ function GuessedLetters({word, guesses}) {
             <div className="container-word">
                 {wordLetters.map((letter, index) => {
                     let isLeftOver = false;
-                    if (guesses.includes(letter)) {
+                    let isFilledIn = false;
+                    if (wrongGuesses.length < 7 && guesses.includes(letter)) {
+                        isFilledIn = true;
+                    } else if (wrongGuesses.length >= 7 && guesses.includes(letter)) {
                         isLeftOver = true;
                     }
-                    return <GuessedLetter key={index} letter={letter} isLeftOver={isLeftOver} />;
+                    return <GuessedLetter key={index} letter={letter} isWhite={isFilledIn} isRed={isLeftOver} />;        
                 })}
             </div>
         </>
